@@ -20,7 +20,7 @@ package 'mariadb-clients' do
 end
 
 service 'mysqld' do
-  provider Chef::Provider::Service::Systemd if node['platform'] == 'arch'
+  provider Chef::Provider::Service::Systemd if node['platform'] =~ /arch|manjaro/
   supports status: true, start: true, stop: true, restart: true, reload: true
   action [:enable, :start]
 end
