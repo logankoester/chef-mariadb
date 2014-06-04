@@ -1,11 +1,13 @@
-# Gibson mariadb
+# MariaDB cookbook
+
+> A Chef cookbook for MariaDB (MySQL implementation). Tested on Arch Linux.
 
 ## Installation
 
 Using [Berkshelf](http://berkshelf.com/), add the mariadb cookbook to your Berksfile.
 
 ```ruby
-    cookbook 'mariadb', git: 'git@git.ldk.io:logankoester/gibson.git', rel: 'chef/cookbooks/mariadb', branch: 'master'
+cookbook 'mariadb', github: 'logankoester/chef-mariadb', branch: 'master'
 ```
 
 Then run `berks` to install it.
@@ -21,20 +23,6 @@ Add `recipe[mariadb::default]` to your run list.
 ## Attributes
 
 Refer to `attributes/default.rb` for details.
-
-## Development
-
-    # Start an archlinux vm
-    cd mariadb
-    vagrant up 
-
-    # Edit files...
-
-    # Run again
-    vagrant provision 
-
-    # Verify
-    vagrant ssh
 
 ## Author
 

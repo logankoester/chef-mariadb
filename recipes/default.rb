@@ -1,12 +1,3 @@
-#
-# Cookbook Name:: mariadb
-# Recipe:: default
-#
-# Copyright (C) 2013 Logan Koester
-# 
-# All rights reserved - Do Not Redistribute
-#
-
 package 'mariadb' do
   action :install
 end
