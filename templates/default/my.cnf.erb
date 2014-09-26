@@ -138,7 +138,7 @@ quick
 max_allowed_packet = 16M
 
 [mysql]
-<% if node[:mariadb][:enable_autocompletion] %>
+<% if node[:mariadb][:enable_autocomplete] %>
 auto-rehash
 <% else %>
 no-auto-rehash
