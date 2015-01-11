@@ -8,3 +8,5 @@ default[:mariadb][:server_root_password] = 'gibson'
 
 default[:mariadb][:remove_anonymous_users] = true
 default[:mariadb][:remove_test_database] = true
+
+default[:mariadb][:supervisor] = false

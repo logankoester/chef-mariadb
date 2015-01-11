@@ -10,9 +10,17 @@ package 'mariadb-clients' do
   action :install
 end
 
-service 'mysqld' do
-  supports status: true, start: true, stop: true, restart: true, reload: true
-  action [:enable, :start]
+if node['mariadb']['supervisor']
+  supervisor_service 'mysqld' do
+    command '/usr/bin/mysqld'
+    user 'mysql'
+    action [:enable, :start]
+  end
+else
+  service 'mysqld' do
+    supports status: true, start: true, stop: true, restart: true, reload: true
+    action [:enable, :start]
+  end
 end
 
 template '/etc/mysql/my.cnf' do

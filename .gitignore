@@ -12,4 +12,6 @@ Berksfile.lock
 Gemfile.lock
 bin/*
 .bundle/*
+*.box
 
+.kitchen/
