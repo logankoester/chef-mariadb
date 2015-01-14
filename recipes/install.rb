@@ -1,5 +1,7 @@
-package 'mariadb' do
-  action :install
+%w{mariadb libmariadbclient}.each do |pkg|
+  package pkg do
+    action :install
+  end
 end
 
 package 'libmariadbclient' do
@@ -36,13 +38,13 @@ execute 'Ensure that a root password is set' do
   only_if "mysql -u root -e 'show databases;'"
 end
 
-if node[:mariadb][:remove_anonymous_users]
+if node['mariadb']['remove_anonymous_users']
   execute 'Remove anonymous users' do
     command "mysql -u root --password='#{root_password}' -e \"DELETE FROM mysql.user WHERE User='';\""
   end
 end
 
-if node[:mariadb][:remove_test_database]
+if node['mariadb']['remove_test_database']
   execute 'Remove test database and access to it' do
     command "mysql -u root --password='#{root_password}' -e \"DROP DATABASE IF EXISTS test; DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%';\""
   end
