@@ -1,7 +1,8 @@
+root_password = data_bag_item('database_users', 'root')['password']
 mysql_connection_info = {
   host: 'localhost',
   username: 'root',
-  password: node[:mariadb][:server_root_password]
+  password: root_password
 }
 
 data_bag('database_users').each do |database_user_id|

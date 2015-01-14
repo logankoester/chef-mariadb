@@ -4,7 +4,8 @@ default[:mariadb][:skip_networking] = true
 # Enabling this feature can make the client initialization longer.
 default[:mariadb][:enable_autcomplete] = true
 
-default[:mariadb][:server_root_password] = 'gibson'
+default[:databases] = []
+default[:database_users] = []
 
 default[:mariadb][:remove_anonymous_users] = true
 default[:mariadb][:remove_test_database] = true

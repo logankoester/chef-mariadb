@@ -21,3 +21,7 @@ describe file('/etc/mysql/my.cnf') do
   it { should be_mode 644 }
   it { should be_owned_by 'root' }
 end
+
+describe command("mysql -u root -proot_password -e 'show databases;'") do
+  its(:exit_status) { should eq 0 }
+end

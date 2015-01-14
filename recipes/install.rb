@@ -28,20 +28,22 @@ template '/etc/mysql/my.cnf' do
   source 'my.cnf.erb'
 end
 
+root_password = data_bag_item('database_users', 'root')['password']
+
 execute 'Ensure that a root password is set' do
-  command "mysql -u root -e 'UPDATE mysql.user SET Password=PASSWORD(\"#{node[:mariadb][:server_root_password]}\") WHERE User=\"root\"; FLUSH PRIVILEGES;'"
+  command "mysql -u root -e 'UPDATE mysql.user SET Password=PASSWORD(\"#{root_password}\") WHERE User=\"root\"; FLUSH PRIVILEGES;'"
   action :run
   only_if "mysql -u root -e 'show databases;'"
 end
 
 if node[:mariadb][:remove_anonymous_users]
   execute 'Remove anonymous users' do
-    command "mysql -u root --password='#{node[:mariadb][:server_root_password]}' -e \"DELETE FROM mysql.user WHERE User='';\""
+    command "mysql -u root --password='#{root_password}' -e \"DELETE FROM mysql.user WHERE User='';\""
   end
 end
 
 if node[:mariadb][:remove_test_database]
   execute 'Remove test database and access to it' do
-    command "mysql -u root --password='#{node[:mariadb][:server_root_password]}' -e \"DROP DATABASE IF EXISTS test; DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%';\""
+    command "mysql -u root --password='#{root_password}' -e \"DROP DATABASE IF EXISTS test; DELETE FROM mysql.db WHERE Db='test' OR Db='test\_%';\""
   end
 end
