@@ -65,8 +65,8 @@ This cookbook uses the [Foodcritic](http://www.foodcritic.io/) linter, [ChefSpec
 
 It's not as complicated as it sounds, but you will need to have Docker installed.
 
-1. `git clone git@github.com:logankoester/chef-website.git`
-2. `cd chef-website`
+1. `git clone git@github.com:logankoester/chef-mariadb.git`
+2. `cd chef-mariadb`
 3. `bundle install`
 4. `bundle exec rake`
 
