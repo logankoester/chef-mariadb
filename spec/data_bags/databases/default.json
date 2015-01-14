@@ -1,4 +1,7 @@
 {
   "id": "default",
-  "name": "default_db"
+  "name": "default_db",
+  "users": {
+    "default": ["all"]
+  }
 }

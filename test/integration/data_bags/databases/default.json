@@ -1,6 +1,7 @@
 {
   "id": "default",
   "name": "default_db",
-  "users": ["default_user"],
-  "pass": "default_password"
+  "users": {
+    "default": ["all"]
+  }
 }

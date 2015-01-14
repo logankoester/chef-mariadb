@@ -13,11 +13,20 @@ data_bag('database_users').each do |database_user_id|
     password database_user['password']
     action :create
   end
+end
 
-  mysql_database_user database_user['username'] do
-    connection mysql_connection_info
-    database_name database_user['database_name']
-    privileges [:all]
-    action :grant
+data_bag('databases').each do |database_id|
+  next unless node['databases'].include? database_id
+  database = data_bag_item 'databases', database_id
+
+  database['users'].each do |user_id, privileges|
+    user = data_bag_item 'database_users', user_id
+
+    mysql_database_user user['username'] do
+      connection mysql_connection_info
+      database_name database['name']
+      privileges privileges.map { |p| p.to_sym }
+      action :grant
+    end
   end
 end

@@ -1,6 +1,5 @@
 {
   "id": "default",
   "username": "default_user",
-  "password": "default_password",
-  "database_name": "default_db"
+  "password": "default_password"
 }
