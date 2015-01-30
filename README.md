@@ -32,7 +32,8 @@ your root database user:
 {
   "id": "root",
   "username": "root",
-  "password": "SET A SECURE ROOT PASSWORD!"
+  "password": "SET A SECURE ROOT PASSWORD!",
+  "host": "127.0.0.1"
 }
 ```
 
