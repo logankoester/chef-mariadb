@@ -12,7 +12,7 @@ data_bag('database_users').each do |database_user_id|
   mysql_database_user database_user['username'] do
     connection mysql_connection_info
     password database_user['password']
-    host database_user['host'] || '127.0.0.1'
+    host database_user['host'] || 'localhost'
     action :create
   end
 end
