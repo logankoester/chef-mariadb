@@ -17,6 +17,7 @@ platforms:
       disable_upstart: true
       require_chef_omnibus: false
       provision_command:
+        - pacman -Sy
         - pacman -S --noconfirm --needed supervisor git
         - rm /etc/gemrc
       run_command: 'sh -c "/usr/sbin/sshd -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes && /usr/sbin/supervisord -c /etc/supervisord.conf -n"'

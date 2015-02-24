@@ -5,4 +5,4 @@ license          'MIT'
 description      'An enhanced, drop-in replacement for MySQL.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.1.1'
-depends          'database'
+depends          'database', '2.3.1'
