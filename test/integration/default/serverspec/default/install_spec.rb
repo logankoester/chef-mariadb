@@ -25,3 +25,7 @@ end
 describe command("mysql -u root -proot_password -e 'show databases;'") do
   its(:exit_status) { should eq 0 }
 end
+
+describe command('mysql -u root -proot_password -e "SELECT User, Host FROM mysql.user"') do
+  its(:stdout) { should match /default_user\s+%/ }
+end

@@ -1,5 +1,6 @@
 {
   "id": "default",
   "username": "default_user",
-  "password": "default_password"
+  "password": "default_password",
+  "host": "%"
 }
