@@ -14,7 +14,7 @@ data_bag('database_users').each do |database_user_id|
     password database_user['password']
     host database_user['host'] || 'localhost'
     if database_user['username'] == 'root'
-      action :create, :grant
+      action [:create, :grant]
     else
       action :create
     end
