@@ -30,6 +30,7 @@ data_bag('databases').each do |database_id|
 
     mysql_database_user user['username'] do
       connection mysql_connection_info
+      password user['password']
       database_name database['name']
       host user['host']
       privileges privileges.map { |p| p.to_sym }
