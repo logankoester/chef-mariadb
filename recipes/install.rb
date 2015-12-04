@@ -12,6 +12,14 @@ package 'mariadb-clients' do
   action :install
 end
 
+execute 'Initialize the MariaDB data directory' do
+  command 'mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql'
+  action :run
+  only_if do
+    ::Dir['/var/lib/mysql/*'].empty?
+  end
+end
+
 if node['mariadb']['supervisor']
   supervisor_service 'mysqld' do
     command '/usr/bin/mysqld'
