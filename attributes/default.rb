@@ -15,3 +15,5 @@ default['mariadb']['supervisor'] = false
 # http://www.percona.com/blog/2008/05/31/dns-achilles-heel-mysql-installation/
 default['mariadb']['skip_name_resolve'] = false
 default['mariadb']['bind-address'] = '127.0.0.1'
+
+default['mariadb']['expire_logs_days'] = 5

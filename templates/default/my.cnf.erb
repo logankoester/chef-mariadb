@@ -125,6 +125,10 @@ server-id	= 1
 # binary logging - not required for slaves, but recommended
 #log-bin=mysql-bin
 
+<% if node['mariadb']['expire_logs_days'] %>
+expire_logs_days = <%= node['mariadb']['expire_logs_days'] %>
+<% end %>
+
 # Uncomment the following if you are using InnoDB tables
 #innodb_data_home_dir = /var/lib/mysql
 #innodb_data_file_path = ibdata1:10M:autoextend

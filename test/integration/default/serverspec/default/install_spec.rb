@@ -29,3 +29,7 @@ end
 describe command('mysql -u root -proot_password -e "SELECT User, Host FROM mysql.user"') do
   its(:stdout) { should match /default_user\s+%/ }
 end
+
+describe command('mysql -u root -proot_password -e "SELECT @@global.expire_logs_days"') do
+  its(:stdout) { should match /5/ }
+end
