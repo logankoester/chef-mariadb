@@ -1,3 +1,7 @@
+mysql2_chef_gem_mariadb 'default' do
+  action :install
+end
+
 %w{mariadb libmariadbclient}.each do |pkg|
   package pkg do
     action :install

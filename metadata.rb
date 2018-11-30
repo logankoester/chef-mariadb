@@ -6,3 +6,4 @@ description      'An enhanced, drop-in replacement for MySQL.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.2.5'
 depends          'database'
+depends          'mysql2_chef_gem'
