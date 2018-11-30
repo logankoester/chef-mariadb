@@ -1,4 +1,4 @@
-include_recipe 'mariadb::install'
+include_recipe 'arch_mariadb::install'
 include_recipe 'database::mysql'
-include_recipe 'mariadb::databases'
-include_recipe 'mariadb::database_users'
+include_recipe 'arch_mariadb::databases'
+include_recipe 'arch_mariadb::database_users'
