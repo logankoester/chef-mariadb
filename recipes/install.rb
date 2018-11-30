@@ -1,4 +1,5 @@
-mysql2_chef_gem 'default' do
+gem_package 'mysql2' do
+  gem_binary RbConfig::CONFIG['bindir'] + '/gem'
   action :install
 end
 
