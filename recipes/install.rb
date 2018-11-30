@@ -1,4 +1,4 @@
-mysql2_chef_gem_mariadb 'default' do
+mysql2_chef_gem 'default' do
   action :install
 end
 
